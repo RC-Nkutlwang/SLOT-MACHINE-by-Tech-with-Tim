@@ -116,7 +116,7 @@ def spin(balance):
             print("Insufficient balance to place bet")
             print(f"Current balance: £{balance}")
         else:
-            #balance = balance - total_bet
+            balance = balance - total_bet
             break
     print("You are betting £"+ str(bet) +" on "+ str(lines) +" lines. Total bet is £"+ str(total_bet) +"")
     #print(balance, lines)o
@@ -134,6 +134,10 @@ def main():
         answer = input("Press enter to play (q to quit).")
         if answer == "q":
             break
+        else:
+            if balance == 0:
+                print(f"You no longer have funds to bet. Please deposit some funds to continue playing")
+                balance = deposit()
         balance += spin(balance)
 
     print(f" You left with £{balance}")
